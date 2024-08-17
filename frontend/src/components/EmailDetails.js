@@ -37,7 +37,7 @@ const EmailDetails = ({ selectedEmail, setSelectedEmail }) => {
 
   const handleSendReply = async () => {
     try {
-      await axios.post(`http://localhost:7000/reply/${selectedEmail._id}`, {
+      await axios.post(`https://inbox-project-backend.vercel.app/reply/${selectedEmail._id}`, {
         from: selectedEmail.to, // Assuming the reply is sent back to the sender
         to: selectedEmail.from,
         subject: `Re: ${selectedEmail.subject}`,

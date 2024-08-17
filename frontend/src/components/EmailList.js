@@ -95,7 +95,7 @@ const EmailList = ({ onSelectEmail }) => {
   useEffect(() => {
     const fetchEmails = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/Reademails');
+        const response = await axios.get('https://inbox-project-backend.vercel.app/Reademails');
         console.log(response);
 
         setEmails(response.data);
@@ -113,7 +113,7 @@ const EmailList = ({ onSelectEmail }) => {
     e.preventDefault();
     try {
       const newEmail = { from, to, subject, body };
-      await axios.post('http://localhost:7000/emails', newEmail);
+      await axios.post('https://inbox-project-backend.vercel.app/emails', newEmail);
       // setEmails([...emails, newEmail]);  // Update email list after sending
       setEmailSubmitted(!emailSubmitted);
 
