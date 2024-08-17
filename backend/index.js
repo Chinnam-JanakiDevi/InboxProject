@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 
 //save the emails in db 
 app.post('/emails', async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project.vercel.app");
+    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project-frontend.vercel.app");
     res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     const { from,to,subject,body } = req.body
@@ -60,7 +60,7 @@ app.post('/emails', async (req, res) => {
 
 //get the emails from emailList
 app.get('/Reademails', async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project.vercel.app");
+    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project-frontend.vercel.app");
     res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     try {
@@ -75,7 +75,7 @@ app.get('/Reademails', async (req, res) => {
 
 // Route to handle replies
 app.post('/reply/:emailId', async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project.vercel.app");
+    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project-frontend.vercel.app");
     res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     try {
