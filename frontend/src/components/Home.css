@@ -1,0 +1,17 @@
+.home h1 {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+.home{
+    display: block;
+    position: absolute;
+    top:40%;
+    left:20%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
