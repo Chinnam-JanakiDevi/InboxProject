@@ -7,12 +7,12 @@ const emailList=require("./model/mailsList")
 const app = express();
 const PORT = 7000;
 
-// app.use(cors({
-//     origin:["https://businessproject-jet.vercel.app"],
-//     methods:["post","get"],
-//     credentials:true
-// }));
-app.use(cors())
+app.use(cors({
+    origin:["https://businessproject-jet.vercel.app"],
+    methods:["post","get"],
+    credentials:true
+}));
+// app.use(cors())
 app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -36,9 +36,9 @@ app.get("/", (req, res) => {
 
 //save the emails in db 
 app.post('/emails', async (req, res) => {
-    // res.setHeader("Access-Control-Allow-Origin", "https://businessproject-jet.vercel.app");
-    // res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
-    // res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     const { from,to,subject,body } = req.body
     const details = {
         from:from,
@@ -60,6 +60,9 @@ app.post('/emails', async (req, res) => {
 
 //get the emails from emailList
 app.get('/Reademails', async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     try {
         const emails = await emailList.find();  // Fetch all emails from the database
         console.log(emails);
@@ -72,6 +75,9 @@ app.get('/Reademails', async (req, res) => {
 
 // Route to handle replies
 app.post('/reply/:emailId', async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://inbox-project.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     try {
       const { emailId } = req.params;
       const { from, to, subject, body } = req.body;
